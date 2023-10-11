@@ -1,4 +1,3 @@
-#Initialization - import the needed packages.
 import py4DSTEM
 from py4DSTEM.visualize import show
 import numpy as np
