@@ -16,17 +16,6 @@ datacube = py4DSTEM.io.import_file(
     data_id = 'datacube_0'
 )
 
-# Fix titanX wraparound error
-datacube.data = np.roll(datacube.data,-2,axis=1)
-
-#initialize the size of the data
-datacube
-shape=datacube.shape
-Rxdim=shape[0]
-Rydim=shape[1]
-Qxdim=shape[2]
-Qydim=shape[3]
-
 # Calculate maximum diffraction pattern:
 datacube.get_dp_max()
 datacube.get_dp_mean()
@@ -57,7 +46,7 @@ print('Position of the central peak is','x = %.5f' % probe_qx0 )
 print('Position of the central peak is','y = %.5f' % probe_qy0 )
 
 # Create a bright field (BF) virtual detector using the the center beam position, and expanding the radius slightly.
-expand_BF = 15.0
+expand_BF = 5
 
 # Overlay the estimated probe position and radius on the maximum diffraction pattern
 py4DSTEM.visualize.show(
@@ -74,8 +63,38 @@ py4DSTEM.visualize.show(
     vmax=10
 )
 
-# Create an off-axis dark-field (DF) virtual detector using the the center beam position, and expanding the radius slightly.
+# virtual ADF
+radii_DF = (50/bin_factor,80/bin_factor)
+radii_Au = (116/bin_factor,126/bin_factor)
 
+center = (probe_qx0, probe_qy0)
+
+py4DSTEM.visualize.show(
+    dataset.tree('dp_max'),
+    annulus = {
+        'center':[center, center],
+        'radii':[radii_DF, radii_Au],
+        'alpha':0.3,
+        'fill':True,
+        'color':['c','y'],
+    },
+    vmax = 0.998,
+    power = 0.5,
+)
+
+# Generate virtual ADF images
+dataset.get_virtual_image(
+    mode = 'annulus',
+    geometry = (center,radii_DF),
+    name = 'dark_field',
+);
+dataset.get_virtual_image(
+    mode = 'annulus',
+    geometry = (center,radii_Au),
+    name = 'dark_field_Au',
+);
+
+# Create an off-axis dark-field (DF) virtual detector using the the center beam position, and expanding the radius slightly.
 qx0_DF,qy0_DF = 396,485
 r_DF = 15
 
@@ -99,5 +118,5 @@ datacube.get_virtual_image(
     geometry = ((qx0_DF, qy0_DF), r_DF),
     name = 'virt_dark_field_01'
 )
-
+# Generate virtual DF image
 py4DSTEM.visualize.show(datacube.tree['virt_dark_field_01'])
