@@ -1,5 +1,10 @@
 import py4DSTEM
+from py4DSTEM.visualize import show
 import numpy as np
+from numpy import savetxt
+import matplotlib
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
 
 file_data = 'sample2_ss=1nm_C2=10um_alpha=0p4_spot11_exposure50ms_CL=195mm_bin2_300kV.dm4'
 bin_factor = 2
