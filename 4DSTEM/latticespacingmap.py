@@ -1,4 +1,3 @@
-#Initialization - import the needed packages.
 import py4DSTEM
 from py4DSTEM.visualize import show
 import numpy as np
@@ -35,7 +34,7 @@ for i in range(0,Qxdim):
             for b in range(24,27):
                 dc_1[i,j]+=datacube[a,b,i,j]  #average 16 pixels
 
-# mask the diffraction spot
+# mask the diffraction spot and fit its position using Gaussian function
 image_size=230
 
 qx0_DF,qy0_DF = image_size+98,image_size+183 # max value = 70, zero strain = 0.00490
@@ -96,7 +95,7 @@ X,Y=np.meshgrid(x,y)
 
 params_dfrt,pcov=curve_fit(gaussian,np.array([X,Y]),dc_dfrt.ravel())
 
-# mask the central spot
+# mask the central spot and fit its position using Gaussian function
 image_size=200
 qx2_DF,qy2_DF = image_size,image_size
 r_C = 10
