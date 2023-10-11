@@ -14,9 +14,6 @@ dataset.data = np.roll(dataset.data,-2,axis=1)
 # Apply binning
 dataset.bin_Q(bin_factor)
 
-dataset.get_dp_max();
-dataset.get_dp_mean();
-
 py4DSTEM.show(
     dataset.data[30,49],
     power = 0.5,
@@ -71,10 +68,10 @@ model_list.append(py4DSTEM.process.wholepatternfit.GaussianBackground(
 model_list.append(
     py4DSTEM.process.wholepatternfit.SyntheticDiskLattice(
         WPF,
-        ux=(63.788/bin_factor, bound),
-        uy=(3.805/bin_factor, bound),
-        vx=(27.145/bin_factor, bound),
-        vy=(56.338/bin_factor, bound),
+        ux=(63.79/bin_factor, bound),
+        uy=(3.81/bin_factor, bound),
+        vx=(27.15/bin_factor, bound),
+        vy=(56.34/bin_factor, bound),
         disk_radius=(radius_init, 1e-4),
         disk_width=(width_init, 1e-4),
         u_max = 3,
@@ -147,10 +144,10 @@ model_list.append(
 model_list.append(
     py4DSTEM.process.wholepatternfit.SyntheticDiskLattice(
         WPF,
-        ux=(64.042/bin_factor, bound),
-        uy=(-0.657/bin_factor, bound),
-        vx=(31.065/bin_factor, bound),
-        vy=(54.047/bin_factor, bound),
+        ux=(64.04/bin_factor, bound),
+        uy=(-0.66/bin_factor, bound),
+        vx=(31.07/bin_factor, bound),
+        vy=(54.05/bin_factor, bound),
         disk_radius=(radius_init, 1e-4),
         disk_width=(width_init, 1e-4),
         u_max = 3,
@@ -223,10 +220,10 @@ model_list.append(
 model_list.append(
     py4DSTEM.process.wholepatternfit.SyntheticDiskLattice(
         WPF,
-        ux=(109.0/bin_factor, bound),
-        uy=(-57.0/bin_factor, bound),
-        vx=(102.0/bin_factor, bound),
-        vy=(62.0/bin_factor, bound),
+        ux=(109.33/bin_factor, bound),
+        uy=(-57.35/bin_factor, bound),
+        vx=(102.94/bin_factor, bound),
+        vy=(62.17/bin_factor, bound),
         disk_radius=(radius_init, 1e-4),
         disk_width=(width_init, 1e-4),
         u_max = 2,
@@ -279,7 +276,7 @@ for gm in g_maps:
     print(gm.name, flush=True)
     py4DSTEM.visualize.show_strain(
         strain,
-        [-0.07, 0.07], 
+        [-0.7, 0.7], 
         [-0.2, 0.2], 
         layout=1, 
         axes_x0=5, 
