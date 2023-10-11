@@ -7,10 +7,10 @@ import matplotlib
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
-file_data = 'sample2_ss=1nm_C2=10um_alpha=0p4_spot11_exposure50ms_CL=195mm_bin2_300kV.dm4'
-py4DSTEM.io.import_file(file_data) #sample 2
-
 # Load the data
+file_data = 'sample2_ss=1nm_C2=10um_alpha=0p4_spot11_exposure50ms_CL=195mm_bin2_300kV.dm4'
+py4DSTEM.io.import_file(file_data)
+
 datacube = py4DSTEM.io.import_file(
     file_data,
     data_id = 'datacube_0'
