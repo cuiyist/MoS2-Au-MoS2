@@ -1,3 +1,25 @@
+#Initialization - import the needed packages.
+import py4DSTEM
+from py4DSTEM.visualize import show
+import numpy as np
+from numpy import savetxt
+import matplotlib
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+
+file_data = 'sample2_ss=1nm_C2=10um_alpha=0p4_spot11_exposure50ms_CL=195mm_bin2_300kV.dm4'
+py4DSTEM.io.import_file(file_data) #sample 2
+
+# Load the data
+datacube = py4DSTEM.io.import_file(
+    file_data,
+    data_id = 'datacube_0'
+)
+
+# Calculate maximum diffraction pattern:
+datacube.get_dp_max()
+datacube.get_dp_mean()
+
 #Fit lattice spacing
 dc_1=np.zeros((Qxdim,Qydim))
 for i in range(0,Qxdim):
