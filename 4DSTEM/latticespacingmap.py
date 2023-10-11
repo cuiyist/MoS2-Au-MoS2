@@ -16,6 +16,13 @@ datacube = py4DSTEM.io.import_file(
     data_id = 'datacube_0'
 )
 
+#initialize the size of the data
+shape=datacube.shape
+Rxdim=shape[0]
+Rydim=shape[1]
+Qxdim=shape[2]
+Qydim=shape[3]
+
 # Calculate maximum diffraction pattern:
 datacube.get_dp_max()
 datacube.get_dp_mean()
