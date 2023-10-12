@@ -252,6 +252,7 @@ model_list.append(
 WPF.add_model_list(model_list)
 
 opt = WPF.fit_to_mean_CBED(xtol=1e-8)
+
 WPF.accept_mean_CBED_fit()
 WPF.show_lattice_points(figsize=(10, 10))
 WPF.show_model_grid(figsize=(14, 9))
