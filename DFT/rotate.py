@@ -1,11 +1,9 @@
-
 import numpy as np
 import os
-
 from ase.io import read, write
 
 """
-Rotate the gold layer by a certain angle
+Rotate the gold layer by a certain angle relative to MoS2 lattice
 """
 
 def rotation_matrix(axis, theta):
