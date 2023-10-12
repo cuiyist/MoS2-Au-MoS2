@@ -15,7 +15,7 @@ datacube = py4DSTEM.io.import_file(
     data_id = 'datacube_0'
 )
 
-#initialize the size of the data
+# Initialize the size of the data
 shape=datacube.shape
 Rxdim=shape[0]
 Rydim=shape[1]
@@ -26,7 +26,13 @@ Qydim=shape[3]
 datacube.get_dp_max()
 datacube.get_dp_mean()
 
-#Fit lattice spacing
+# Determine the position of diffraction spots using Gaussian function
+def gaussian(xy,x0,y0,sigma2,A):
+    x=xy[0]
+    y=xy[1]
+    result=A*np.exp(-((x-x0)**2+(y-y0)**2)/(2 *sigma2**2))
+    return result.ravel()
+
 dc_1=np.zeros((Qxdim,Qydim))
 for i in range(0,Qxdim):
     for j in range(0,Qydim):
@@ -34,7 +40,7 @@ for i in range(0,Qxdim):
             for b in range(24,27):
                 dc_1[i,j]+=datacube[a,b,i,j]  #average 16 pixels
 
-# mask the diffraction spot and fit its position using Gaussian function
+# Mask the diffraction spot and fit its position using Gaussian function
 image_size=230
 
 qx0_DF,qy0_DF = image_size+98,image_size+183 # max value = 70, zero strain = 0.00490
@@ -77,12 +83,6 @@ py4DSTEM.visualize.show(
     vmax=8
 )
 
-def gaussian(xy,x0,y0,sigma2,A):
-    x=xy[0]
-    y=xy[1]
-    result=A*np.exp(-((x-x0)**2+(y-y0)**2)/(2 *sigma2**2))
-    return result.ravel()
-
 max_value=np.amax(dc_dfrt)
 max_indices=np.unravel_index(np.argmax(dc_dfrt),dc_dfrt.shape)
 
@@ -95,7 +95,7 @@ X,Y=np.meshgrid(x,y)
 
 params_dfrt,pcov=curve_fit(gaussian,np.array([X,Y]),dc_dfrt.ravel())
 
-# mask the central spot and fit its position using Gaussian function
+# Mask the central spot and fit its position using Gaussian function
 image_size=200
 qx2_DF,qy2_DF = image_size,image_size
 r_C = 10
@@ -145,7 +145,7 @@ print('dx= %.5f' % dx)
 print('dy= %.5f' % dy)
 print('dr= %.5f' % dr)
 
-# calculate distence between the masked diffraction spot and the central spot
+# Calculate distence between the masked diffraction spot and the central spot
 result_Q2=np.zeros((Rxdim,Rydim))
 
 for i in range(0,Rxdim):
@@ -178,7 +178,6 @@ for i in range(0,Rxdim):
             params_dfrt,pcov=curve_fit(gaussian,np.array([X2,Y2]),dc_dfrt0.ravel())
             params_cspot,pcov=curve_fit(gaussian,np.array([X,Y]),dc_cspot0.ravel())
         
-        #result_Q[i][j][0:3]=[center_x0-r_C+params_cspot[0],center_y0-r_C+params_cspot[1],center_x1-r_DF+params_dfrt[0],center_y1-r_DF+params_dfrt[1]]
         except RuntimeError:
             #print('No spot found')
             result_Q2[i][j]=0.0049
@@ -208,7 +207,7 @@ x=np.arange(result_Q2.shape[0],dtype=np.float32)
 y=np.arange(result_Q2.shape[1],dtype=np.float32)
 X,Y=np.meshgrid(x,y)
 
-# print lattice spacing map
+# Print lattice spacing map
 fig=plt.figure()
 pos=plt.imshow(
     result_Q2,
