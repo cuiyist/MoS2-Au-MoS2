@@ -16,14 +16,6 @@ dataset = py4DSTEM.import_file(
 # Apply binning
 dataset.bin_Q(bin_factor)
 
-py4DSTEM.show(
-    dataset.data[30,49],
-    power = 0.5,
-    vmax = 1,
-    cmap = 'turbo',
-    figsize = (16,16),
-)
-
 # HAADF detector mask
 dataset.get_beamstop_mask(
     threshold = 0.1,
@@ -67,6 +59,7 @@ model_list.append(py4DSTEM.process.wholepatternfit.GaussianBackground(
     intensity=(100,0,None)
 ))
 
+# parameters for MoS2 lattice 1
 model_list.append(
     py4DSTEM.process.wholepatternfit.SyntheticDiskLattice(
         WPF,
@@ -142,7 +135,7 @@ model_list.append(
     ),
 )
 
-
+# parameters for MoS2 lattice 2
 model_list.append(
     py4DSTEM.process.wholepatternfit.SyntheticDiskLattice(
         WPF,
@@ -217,8 +210,7 @@ model_list.append(
     ),
 )
 
-
-
+# parameters for Au lattice
 model_list.append(
     py4DSTEM.process.wholepatternfit.SyntheticDiskLattice(
         WPF,
@@ -269,6 +261,7 @@ fit_all, fit_metrics = WPF.fit_all_patterns(
     xtol = 1e-4,
 )
 
+# generate strain maps for all lattices
 g_maps = WPF.get_lattice_maps()
 for gm in g_maps:
     g_ref = py4DSTEM.process.latticevectors.get_reference_g1g2(
