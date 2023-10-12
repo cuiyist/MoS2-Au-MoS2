@@ -13,9 +13,6 @@ dataset = py4DSTEM.import_file(
     file_data,
 )
 
-# Fix titanX wraparound error
-dataset.data = np.roll(dataset.data,-2,axis=1)
-
 # Apply binning
 dataset.bin_Q(bin_factor)
 
