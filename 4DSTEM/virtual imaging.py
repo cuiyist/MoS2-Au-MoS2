@@ -62,8 +62,8 @@ py4DSTEM.visualize.show(
     vmax=10
 )
 
-# virtual ADF
-radii_DF = (50/bin_factor,80/bin_factor)
+# Create virtual ADF detectors
+radii_DF = (55/bin_factor,75/bin_factor)
 radii_Au = (116/bin_factor,126/bin_factor)
 
 center = (probe_qx0, probe_qy0)
