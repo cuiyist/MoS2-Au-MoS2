@@ -124,12 +124,6 @@ py4DSTEM.visualize.show(
     vmax=11
 )
 
-def gaussian(xy,x0,y0,sigma2,A):
-    x=xy[0]
-    y=xy[1]
-    result=A*np.exp(-((x-x0)**2+(y-y0)**2)/(2 *sigma2**2))
-    return result.ravel()
-
 max_value=np.amax(dc_cspot)
 max_indices=np.unravel_index(np.argmax(dc_cspot),dc_cspot.shape)
 
@@ -151,15 +145,9 @@ print('dx= %.5f' % dx)
 print('dy= %.5f' % dy)
 print('dr= %.5f' % dr)
 
-# calculate lattice spacing
+# calculate distence between the masked diffraction spot and the central spot
 result_Q2=np.zeros((Rxdim,Rydim))
 
-def gaussian(xy,x0,y0,sigma2,A):
-            x=xy[0]
-            y=xy[1]
-            result=A*np.exp(-((x-x0)**2+(y-y0)**2)/(2 *sigma2**2))
-            return result.ravel()
-        
 for i in range(0,Rxdim):
     for j in range(0,Rydim):
         dc=datacube[i][j][:][:]
@@ -220,6 +208,7 @@ x=np.arange(result_Q2.shape[0],dtype=np.float32)
 y=np.arange(result_Q2.shape[1],dtype=np.float32)
 X,Y=np.meshgrid(x,y)
 
+# print lattice spacing map
 fig=plt.figure()
 pos=plt.imshow(
     result_Q2,
