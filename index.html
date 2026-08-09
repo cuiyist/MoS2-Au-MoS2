@@ -933,9 +933,9 @@ html&gt;body{padding:0}&lt;/style&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;mpm-legend viz-row&quot; aria-label=&quot;Pressure models&quot;&gt;
-    &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-elastic&quot;&gt;&lt;/i&gt;Elastic flat punch: two-compliant to supported-lower limits&lt;/span&gt;
     &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-empty&quot;&gt;&lt;/i&gt;Hamaker, empty gap&lt;/span&gt;
     &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-au&quot;&gt;&lt;/i&gt;Hamaker, Au-filled&lt;/span&gt;
+    &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-elastic&quot;&gt;&lt;/i&gt;Finite disc · elastic contact&lt;/span&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;mpm-plots&quot;&gt;
@@ -943,7 +943,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;div class=&quot;mpm-plot-label&quot;&gt;Pressure vs gap thickness&lt;/div&gt;
       &lt;svg id=&quot;mpm-gap-chart&quot; class=&quot;mpm-chart&quot; viewBox=&quot;0 0 360 300&quot; role=&quot;img&quot; aria-labelledby=&quot;mpm-gap-title mpm-gap-desc&quot;&gt;
         &lt;title id=&quot;mpm-gap-title&quot;&gt;Pressure as a function of gap or gold thickness&lt;/title&gt;
-        &lt;desc id=&quot;mpm-gap-desc&quot;&gt;Logarithmic comparison of elastic reaction stress, empty-gap Hamaker pressure, and gold-filled Hamaker pressure.&lt;/desc&gt;
+        &lt;desc id=&quot;mpm-gap-desc&quot;&gt;Logarithmic comparison of empty-gap Hamaker pressure, gold-filled Hamaker pressure, and finite-disc elastic reaction stress.&lt;/desc&gt;
       &lt;/svg&gt;
     &lt;/div&gt;
     &lt;div class=&quot;mpm-plot-wrap&quot;&gt;
@@ -961,10 +961,10 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;tr&gt;&lt;th&gt;Method at selected geometry&lt;/th&gt;&lt;th class=&quot;text-end&quot;&gt;Pressure&lt;/th&gt;&lt;th&gt;Interpretation&lt;/th&gt;&lt;/tr&gt;
       &lt;/thead&gt;
       &lt;tbody&gt;
-        &lt;tr&gt;&lt;td&gt;Flat punch: two compliant MoS₂ slabs&lt;/td&gt;&lt;td id=&quot;mpm-p-elastic-two&quot; class=&quot;text-end text-nowrap&quot;&gt;&lt;/td&gt;&lt;td&gt;Anisotropic half-space estimate&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;Flat punch: supported lower slab&lt;/td&gt;&lt;td id=&quot;mpm-p-elastic-rigid&quot; class=&quot;text-end text-nowrap&quot;&gt;&lt;/td&gt;&lt;td&gt;Upper elastic-contact estimate&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt;Direct Hamaker pressure, empty gap&lt;/td&gt;&lt;td id=&quot;mpm-p-empty&quot; class=&quot;text-end text-nowrap&quot;&gt;&lt;/td&gt;&lt;td&gt;MoS₂ | vacuum/Ar | MoS₂&lt;/td&gt;&lt;/tr&gt;
         &lt;tr&gt;&lt;td&gt;Direct Hamaker pressure through Au&lt;/td&gt;&lt;td id=&quot;mpm-p-au&quot; class=&quot;text-end text-nowrap&quot;&gt;&lt;/td&gt;&lt;td&gt;Approximate MoS₂ | Au | MoS₂ term&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Finite disc · elastic contact: two compliant MoS₂ slabs&lt;/td&gt;&lt;td id=&quot;mpm-p-elastic-two&quot; class=&quot;text-end text-nowrap&quot;&gt;&lt;/td&gt;&lt;td&gt;Anisotropic half-space estimate&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Finite disc · elastic contact: supported lower slab&lt;/td&gt;&lt;td id=&quot;mpm-p-elastic-rigid&quot; class=&quot;text-end text-nowrap&quot;&gt;&lt;/td&gt;&lt;td&gt;Upper elastic-contact estimate&lt;/td&gt;&lt;/tr&gt;
       &lt;/tbody&gt;
     &lt;/table&gt;
   &lt;/div&gt;
@@ -1319,9 +1319,9 @@ html&gt;body{padding:0}&lt;/style&gt;
     const group = makeSvg(&#x27;g&#x27;, { class: &#x27;mpm-dynamic&#x27; });
     const band = makeSvg(&#x27;path&#x27;, { class: &#x27;mpm-band&#x27; });
     const paths = {
-      elastic: makeSvg(&#x27;path&#x27;, { class: &#x27;mpm-line mpm-line-elastic&#x27; }),
       empty: makeSvg(&#x27;path&#x27;, { class: &#x27;mpm-line mpm-line-empty&#x27; }),
-      au: makeSvg(&#x27;path&#x27;, { class: &#x27;mpm-line mpm-line-au&#x27; })
+      au: makeSvg(&#x27;path&#x27;, { class: &#x27;mpm-line mpm-line-au&#x27; }),
+      elastic: makeSvg(&#x27;path&#x27;, { class: &#x27;mpm-line mpm-line-elastic&#x27; })
     };
     if (!isGap) {
       const validFrom = Math.max(xMin, Math.min(xMax, state.diameterNm));
@@ -1336,8 +1336,10 @@ html&gt;body{padding:0}&lt;/style&gt;
       const validityLabel = addText(group, &#x27;half-space valid: t ≳ diameter&#x27;, (validLeft + chartSpec.width - chartSpec.margin.right) / 2, chartSpec.margin.top + 13, &#x27;mpm-tick&#x27;);
       validityLabel.setAttribute(&#x27;aria-hidden&#x27;, &#x27;true&#x27;);
     }
+    group.appendChild(paths.empty);
+    group.appendChild(paths.au);
     group.appendChild(band);
-    Object.values(paths).forEach(path =&gt; group.appendChild(path));
+    group.appendChild(paths.elastic);
 
     const selected = pressures(state.gapNm, state.thicknessNm, state.diameterNm);
     const selectedPx = linearX(selectedX, xMin, xMax);
@@ -1347,9 +1349,9 @@ html&gt;body{padding:0}&lt;/style&gt;
       class: &#x27;mpm-guide&#x27;
     }));
     const markers = [
-      [&#x27;elastic&#x27;, selected.elastic, &#x27;mpm-marker-elastic&#x27;],
       [&#x27;empty&#x27;, selected.empty, &#x27;mpm-marker-empty&#x27;],
-      [&#x27;au&#x27;, selected.au, &#x27;mpm-marker-au&#x27;]
+      [&#x27;au&#x27;, selected.au, &#x27;mpm-marker-au&#x27;],
+      [&#x27;elastic&#x27;, selected.elastic, &#x27;mpm-marker-elastic&#x27;]
     ];
     markers.forEach(([, value, className]) =&gt; {
       group.appendChild(makeSvg(&#x27;circle&#x27;, {
