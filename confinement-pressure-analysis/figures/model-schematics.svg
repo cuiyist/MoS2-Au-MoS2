@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
-  <title id="title">Three mechanical-confinement models for MoS2-Au-MoS2</title>
+  <title id="title">Three confinement-pressure models for MoS2-Au-MoS2</title>
   <desc id="desc">Schematics of an empty gap Hamaker model, an Au-filled Hamaker model, and a finite 50 nanometer gold disc elastic-contact model.</desc>
   <defs>
     <linearGradient id="mos2" x1="0" y1="0" x2="0" y2="1">
