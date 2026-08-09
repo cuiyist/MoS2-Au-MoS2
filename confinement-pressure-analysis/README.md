@@ -1,5 +1,7 @@
 # Confinement-pressure estimates for MoS₂–Au–MoS₂ nanogaps
 
+[**Launch the interactive confinement-pressure explorer →**](https://cuiyist.github.io/MoS2-Au-MoS2/)
+
 This directory contains a reproducible estimate of the normal-pressure scales relevant to an Au nanodisc confined between two MoS₂ flakes during annealing. The calculation uses the experimentally relevant **50 nm mean Au-disc diameter**, approximately **50 nm MoS₂ thickness per flake**, and a **2.4–5.3 nm disc/gap thickness**.
 
 The models answer different physical questions and should not be added together:
@@ -26,7 +28,7 @@ These values are not a single predicted hydrostatic pressure. The Hamaker result
 
 ## Interactive parameter sweep
 
-Open [`docs/index.html`](docs/index.html) in a browser to explore:
+[Launch the published interactive explorer](https://cuiyist.github.io/MoS2-Au-MoS2/) to explore:
 
 - MoS₂ thickness: 10–100 nm
 - gap/Au thickness: 1–8 nm
