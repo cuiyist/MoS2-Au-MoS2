@@ -22,7 +22,7 @@ For two 50 nm MoS₂ flakes and a 50 nm diameter Au disc:
 
 The direct Hamaker attraction is therefore **sub-MPa** over the observed thickness range. The cohesion-energy scale is approximately **0.09–0.20 GPa**, while a fully conformal, linear-elastic flat-punch model gives **1.65–3.63 GPa** when the two flakes share the deformation and **3.29–7.27 GPa** when the lower flake is treated as supported.
 
-These values are not a single predicted hydrostatic pressure. The Hamaker result is a direct long-range traction; Γ/d is an energy-density scale; and the flat-punch result is an elastic reaction-stress scale. At the annealing temperature, interfacial sliding, local debonding, MoS₂ bending, Au plasticity, diffusion, creep, and imperfect contact can all relax the elastic stress. The defensible conclusion is that the architecture can generate an **effective confinement scale from roughly 0.1 GPa to several GPa**, with the GPa values interpreted as ideal-elastic upper scales rather than a uniquely determined sustained pressure.
+These values are not a single predicted hydrostatic pressure. The Hamaker result is a direct long-range traction; Γ/d is an energy-density scale; and the flat-punch result is an elastic reaction-stress scale. At the annealing temperature, interfacial sliding, local debonding, MoS₂ bending, Au plasticity, diffusion, creep, and imperfect contact can all relax the elastic stress. The defensible conclusion is that the architecture can generate an **effective confinement scale from roughly 0.1 GPa to several GPa**, with the GPa values interpreted as ideal-elastic upper scales rather than a uniquely determined sustained pressure. This range is consistent with the broader pressure scales reported for nanoscale confinement in van der Waals heterostructures.<sup>1</sup>
 
 ## Interactive parameter sweep
 
@@ -53,7 +53,7 @@ P_{\mathrm{H}}(d,t)=\frac{A}{6\pi}
 \right],
 $$
 
-where the table uses \(A_{\mathrm{empty}}=0.70\ \mathrm{eV}\). The sign is attractive; the repository reports its magnitude.
+where the table uses \(A_{\mathrm{empty}}=0.70\ \mathrm{eV}\), within the range measured for few-layer and multilayer MoS₂ interfaces.<sup>2</sup> The sign is attractive; the repository reports its magnitude.
 
 The pressure approaches the half-space result \(A/(6\pi d^3)\) once each flake is several gap widths thick. At \(d=5.3\) nm, the finite-thickness factor relative to two half-spaces is:
 
@@ -70,7 +70,7 @@ At \(d=2.4\) nm and \(t=50\) nm, the factor is 99.982%. Thus the Hamaker result 
 ## Model 2: finite MoS₂ slabs with Au in the gap
 
 The same geometry is evaluated with an illustrative effective constant
-\(A_{\mathrm{MoS_2|Au|MoS_2}}=0.58\ \mathrm{eV}\):
+\(A_{\mathrm{MoS_2|Au|MoS_2}}=0.58\ \mathrm{eV}\), informed by elemental-metal Hamaker calculations and first-principles descriptions of the Au–MoS₂ interface:<sup>3,4</sup>
 
 $$
 P_{\mathrm{H,Au}}(d,t)=\frac{A_{\mathrm{eff}}}{6\pi}
@@ -83,7 +83,7 @@ This is a screening estimate, not a full multilayer Lifshitz calculation. A quan
 
 ## Model 3: a finite Au disc as an anisotropic flat punch
 
-The Au feature is not a 200 nm plate. It is treated as a circular disc with mean diameter \(D=50\) nm and radius \(a=25\) nm. For loading normal to the basal plane, a transversely anisotropic indentation modulus is calculated as
+The Au feature is not a 200 nm plate. It is treated as a circular disc with mean diameter \(D=50\) nm and radius \(a=25\) nm. For loading normal to the basal plane, a transversely anisotropic indentation modulus is calculated using the anisotropic half-space contact treatment of Vlassak and Nix:<sup>5</sup>
 
 $$
 M_L=2\sqrt{
@@ -94,7 +94,7 @@ M_L=2\sqrt{
 \right]^{-1}}
 $$
 
-using \(C_{11}=238\), \(C_{33}=52\), \(C_{13}=23\), and \(C_{44}=18.6\) GPa. This gives \(M_L=53.85\) GPa.
+using reported elastic constants \(C_{11}=238\), \(C_{33}=52\), \(C_{13}=23\), and \(C_{44}=18.6\) GPa.<sup>6</sup> This gives \(M_L=53.85\) GPa.
 
 For a flat circular contact, the mean pressure scales as
 
@@ -124,7 +124,7 @@ $$
 P_\Gamma=\frac{\Gamma}{d},
 $$
 
-with \(\Gamma=0.482\ \mathrm{J\,m^{-2}}\). This produces 0.201 GPa at 2.4 nm and 0.091 GPa at 5.3 nm. It is useful as a work-per-volume scale, but it is not the local derivative of the interaction potential and should not be added to the Hamaker or elastic-contact pressure.
+with the experimentally measured MoS₂ cohesion energy \(\Gamma=0.482\pm0.032\ \mathrm{J\,m^{-2}}\).<sup>7</sup> Using the central value produces 0.201 GPa at 2.4 nm and 0.091 GPa at 5.3 nm. It is useful as a work-per-volume scale, but it is not the local derivative of the interaction potential and should not be added to the Hamaker or elastic-contact pressure.
 
 ## Reproduce the calculations
 
@@ -161,10 +161,10 @@ The CSV sweep includes all three models, the Γ/d scale, and a Boolean flag for 
 
 ## References
 
-1. [Hamaker-coefficient mapping for MoS₂ and related layered materials](https://pubs.rsc.org/en/content/articlehtml/2023/nr/d3nr05274e), *Nanoscale* (2023).
-2. [Optical-data-based Hamaker constants for gold](https://arxiv.org/abs/2003.00571).
-3. Vlassak and Nix, [Indentation modulus of elastically anisotropic half spaces](https://www.tandfonline.com/doi/abs/10.1080/01418619308224756), *Philosophical Magazine A* (1993).
-4. [Elastic constants of MoS₂](https://pubs.acs.org/doi/10.1021/acsomega.9b04360), *ACS Omega* (2020).
-5. [Interlayer cohesion and mechanical response of MoS₂](https://www.nature.com/articles/s41467-020-19411-7), *Nature Communications* (2020).
-6. [First-principles analysis of MoS₂/Au interaction](https://pmc.ncbi.nlm.nih.gov/articles/PMC10408618/).
-7. [Van der Waals pressure and confined bubbles in two-dimensional crystals](https://www.nature.com/articles/ncomms12587), *Nature Communications* (2016).
+1. Khestanova, E., Guinea, F., Fumagalli, L., Geim, A. K. & Grigorieva, I. V. Universal shape and pressure inside bubbles appearing in van der Waals heterostructures. *Nat. Commun.* **7**, 12587 (2016). [https://doi.org/10.1038/ncomms12587](https://doi.org/10.1038/ncomms12587)
+2. Gisbert, V. G. & Garcia, R. Fast and high-resolution mapping of van der Waals forces of 2D materials interfaces with bimodal AFM. *Nanoscale* **15**, 19196–19202 (2023). [https://doi.org/10.1039/D3NR05274E](https://doi.org/10.1039/D3NR05274E)
+3. Tolias, P. Non-retarded room temperature Hamaker constants between elemental metals. *Surf. Sci.* **700**, 121652 (2020). [https://doi.org/10.1016/j.susc.2020.121652](https://doi.org/10.1016/j.susc.2020.121652)
+4. Boschetto, G., Carapezzi, S. & Todri-Sanial, A. Non-volatile resistive switching mechanism in single-layer MoS₂ memristors: insights from *ab initio* modelling of Au and MoS₂ interfaces. *Nanoscale Adv.* **5**, 4203–4212 (2023). [https://doi.org/10.1039/D3NA00045A](https://doi.org/10.1039/D3NA00045A)
+5. Vlassak, J. J. & Nix, W. D. Indentation modulus of elastically anisotropic half spaces. *Philos. Mag. A* **67**, 1045–1056 (1993). [https://doi.org/10.1080/01418619308224756](https://doi.org/10.1080/01418619308224756)
+6. Yengejeh, S. I., Liu, J., Kazemi, S. A., Wen, W. & Wang, Y. Effect of structural phases on mechanical properties of molybdenum disulfide. *ACS Omega* **5**, 5994–6002 (2020). [https://doi.org/10.1021/acsomega.9b04360](https://doi.org/10.1021/acsomega.9b04360)
+7. Rokni, H. & Lu, W. Direct measurements of interfacial adhesion in 2D materials and van der Waals heterostructures in ambient air. *Nat. Commun.* **11**, 5607 (2020). [https://doi.org/10.1038/s41467-020-19411-7](https://doi.org/10.1038/s41467-020-19411-7)
