@@ -875,7 +875,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;div id=&quot;mos2-pressure-50nm&quot;&gt;
-  &lt;div class=&quot;mpm-schematics&quot; aria-label=&quot;Three confinement models&quot;&gt;
+  &lt;div class=&quot;mpm-schematics&quot; aria-label=&quot;Four pressure-model explanations&quot;&gt;
     &lt;div class=&quot;mpm-schematic-wrap&quot;&gt;
       &lt;div class=&quot;mpm-schematic-label&quot;&gt;Hamaker · empty gap&lt;/div&gt;
       &lt;svg class=&quot;mpm-schematic&quot; viewBox=&quot;0 0 260 118&quot; role=&quot;img&quot; aria-label=&quot;Two finite molybdenum disulfide slabs separated by an empty gap&quot;&gt;
@@ -916,6 +916,21 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;polygon points=&quot;130,100 125,108 135,108&quot; class=&quot;mpm-force-fill&quot;&gt;&lt;/polygon&gt;
       &lt;/svg&gt;
     &lt;/div&gt;
+    &lt;div class=&quot;mpm-schematic-wrap&quot;&gt;
+      &lt;div class=&quot;mpm-schematic-label&quot;&gt;Adhesion scale · cross-check&lt;/div&gt;
+      &lt;svg class=&quot;mpm-schematic&quot; viewBox=&quot;0 0 260 118&quot; role=&quot;img&quot; aria-label=&quot;Adhesion energy per area divided by gap thickness as a dimensional cross-check, not a separate geometry or local traction&quot;&gt;
+        &lt;rect x=&quot;8&quot; y=&quot;15&quot; width=&quot;244&quot; height=&quot;28&quot; class=&quot;mpm-mos2-fill&quot;&gt;&lt;/rect&gt;
+        &lt;rect x=&quot;8&quot; y=&quot;75&quot; width=&quot;244&quot; height=&quot;28&quot; class=&quot;mpm-mos2-fill&quot;&gt;&lt;/rect&gt;
+        &lt;text x=&quot;130&quot; y=&quot;33&quot; class=&quot;mpm-schematic-text&quot;&gt;MoS₂ surface&lt;/text&gt;
+        &lt;text x=&quot;130&quot; y=&quot;93&quot; class=&quot;mpm-schematic-text&quot;&gt;MoS₂ surface&lt;/text&gt;
+        &lt;line x1=&quot;130&quot; x2=&quot;130&quot; y1=&quot;49&quot; y2=&quot;69&quot; class=&quot;mpm-adhesion-stroke&quot;&gt;&lt;/line&gt;
+        &lt;polygon points=&quot;130,44 125,52 135,52&quot; class=&quot;mpm-adhesion-fill&quot;&gt;&lt;/polygon&gt;
+        &lt;polygon points=&quot;130,74 125,66 135,66&quot; class=&quot;mpm-adhesion-fill&quot;&gt;&lt;/polygon&gt;
+        &lt;text x=&quot;149&quot; y=&quot;62&quot; class=&quot;mpm-schematic-text&quot;&gt;d&lt;/text&gt;
+        &lt;text x=&quot;52&quot; y=&quot;62&quot; class=&quot;mpm-schematic-text&quot;&gt;Γ/d&lt;/text&gt;
+        &lt;text x=&quot;208&quot; y=&quot;62&quot; class=&quot;mpm-schematic-note&quot;&gt;not traction&lt;/text&gt;
+      &lt;/svg&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;viz-controls&quot; aria-label=&quot;Simulation parameters&quot;&gt;
     &lt;label class=&quot;form-label&quot; for=&quot;mpm-thickness&quot;&gt;
@@ -933,8 +948,8 @@ html&gt;body{padding:0}&lt;/style&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;mpm-legend viz-row&quot; aria-label=&quot;Pressure models&quot;&gt;
-    &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-elastic&quot;&gt;&lt;/i&gt;Anisotropic flat punch, two slabs–supported lower slab&lt;/span&gt;
-    &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-adhesion&quot;&gt;&lt;/i&gt;Adhesion scale, Γ/d&lt;/span&gt;
+    &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-elastic&quot;&gt;&lt;/i&gt;Elastic flat punch: two-compliant to supported-lower limits&lt;/span&gt;
+    &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-adhesion&quot;&gt;&lt;/i&gt;Adhesion energy scale, Γ/d (cross-check)&lt;/span&gt;
     &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-empty&quot;&gt;&lt;/i&gt;Hamaker, empty gap&lt;/span&gt;
     &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-au&quot;&gt;&lt;/i&gt;Hamaker, Au-filled&lt;/span&gt;
   &lt;/div&gt;
@@ -981,7 +996,7 @@ html&gt;body{padding:0}&lt;/style&gt;
   }
   #mos2-pressure-50nm .mpm-schematics {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 12px;
     margin-bottom: 10px;
   }
@@ -1025,9 +1040,21 @@ html&gt;body{padding:0}&lt;/style&gt;
   #mos2-pressure-50nm .mpm-force-fill {
     fill: var(--viz-series-1);
   }
+  #mos2-pressure-50nm .mpm-adhesion-stroke {
+    stroke: var(--viz-series-2);
+    stroke-width: 1.5;
+  }
+  #mos2-pressure-50nm .mpm-adhesion-fill {
+    fill: var(--viz-series-2);
+  }
   #mos2-pressure-50nm .mpm-schematic-text {
     fill: var(--foreground);
     font-size: 11px;
+    text-anchor: middle;
+  }
+  #mos2-pressure-50nm .mpm-schematic-note {
+    fill: var(--muted-foreground);
+    font-size: 10px;
     text-anchor: middle;
   }
   #mos2-pressure-50nm .viz-controls {
@@ -1139,6 +1166,9 @@ html&gt;body{padding:0}&lt;/style&gt;
   }
   #mos2-pressure-50nm #mpm-detail {
     margin-top: 5px;
+  }
+  @media (max-width: 900px) {
+    #mos2-pressure-50nm .mpm-schematics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 620px) {
     #mos2-pressure-50nm .mpm-schematics { grid-template-columns: 1fr; }
@@ -1419,7 +1449,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     const ratio = p.elastic / p.au;
     const thicknessRatio = state.thicknessNm / (state.diameterNm / 2);
     const validity = thicknessRatio &gt;= 2 ? &#x27;half-space regime&#x27; : &#x27;finite-thickness correction needed&#x27;;
-    outputs.detail.textContent = `t/a = ${thicknessRatio.toFixed(2)} (${validity}) · Hamaker correction: ${(100 * slabRatio).toFixed(2)}% of half-space · Elastic/Au-Hamaker ratio: ${ratio.toLocaleString(undefined, { maximumFractionDigits: 0 })}×`;
+    outputs.detail.textContent = `t/a = ${thicknessRatio.toFixed(2)} (${validity}) · Hamaker correction: ${(100 * slabRatio).toFixed(2)}% of half-space · Elastic/Au-Hamaker ratio: ${ratio.toLocaleString(undefined, { maximumFractionDigits: 0 })}× · Γ/d is an energy-density cross-check, not a local traction`;
 
     drawChart(root.querySelector(&#x27;#mpm-gap-chart&#x27;), &#x27;gap&#x27;, animate);
     drawChart(root.querySelector(&#x27;#mpm-thickness-chart&#x27;), &#x27;thickness&#x27;, animate);

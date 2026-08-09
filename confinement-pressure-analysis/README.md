@@ -4,11 +4,12 @@
 
 This directory contains a reproducible estimate of the normal-pressure scales relevant to an Au nanodisc confined between two MoS₂ flakes during annealing. The calculation uses the experimentally relevant **50 nm mean Au-disc diameter**, approximately **50 nm MoS₂ thickness per flake**, and a **2.4–5.3 nm disc/gap thickness**.
 
-The models answer different physical questions and should not be added together:
+The figure compares three physical models and one dimensional cross-check. They answer different questions and should not be added together:
 
 1. **Finite-slab Hamaker pressure, empty gap** — direct MoS₂–MoS₂ attraction across vacuum/Ar.
 2. **Finite-slab Hamaker pressure, Au-filled gap** — an illustrative effective Lifshitz/Hamaker term across Au.
 3. **Finite-disc elastic contact** — the reaction stress needed for transversely anisotropic MoS₂ to conform to a 50 nm Au nanodisc.
+4. **Adhesion scale, Γ/d** — adhesion work per area divided by gap thickness; an energy-density cross-check, not a separate geometry or local traction.
 
 ![Schematics of the three pressure models](figures/model-schematics.svg)
 
