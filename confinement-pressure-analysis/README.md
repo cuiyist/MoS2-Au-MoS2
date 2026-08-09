@@ -4,12 +4,11 @@
 
 This directory contains a reproducible estimate of the normal-pressure scales relevant to an Au nanodisc confined between two MoS₂ flakes during annealing. The calculation uses the experimentally relevant **50 nm mean Au-disc diameter**, approximately **50 nm MoS₂ thickness per flake**, and a **2.4–5.3 nm disc/gap thickness**.
 
-The figure compares three physical models and one dimensional cross-check. They answer different questions and should not be added together:
+The three plotted models answer different physical questions and should not be added together:
 
 1. **Finite-slab Hamaker pressure, empty gap** — direct MoS₂–MoS₂ attraction across vacuum/Ar.
 2. **Finite-slab Hamaker pressure, Au-filled gap** — an illustrative effective Lifshitz/Hamaker term across Au.
 3. **Finite-disc elastic contact** — the reaction stress needed for transversely anisotropic MoS₂ to conform to a 50 nm Au nanodisc.
-4. **Adhesion scale, Γ/d** — adhesion work per area divided by gap thickness; an energy-density cross-check, not a separate geometry or local traction.
 
 ![Schematics of the three pressure models](figures/model-schematics.svg)
 
@@ -17,13 +16,13 @@ The figure compares three physical models and one dimensional cross-check. They 
 
 For two 50 nm MoS₂ flakes and a 50 nm diameter Au disc:
 
-| Gap / Au thickness | Empty-gap Hamaker | Au-filled Hamaker | Adhesion scale, Γ/d | Flat punch, two compliant slabs | Flat punch, supported lower slab |
-|---:|---:|---:|---:|---:|---:|
-| 2.4 nm | 0.430 MPa | 0.357 MPa | 0.201 GPa | 1.646 GPa | 3.291 GPa |
-| 2.5 nm | 0.381 MPa | 0.315 MPa | 0.193 GPa | 1.714 GPa | 3.428 GPa |
-| 5.3 nm | 0.040 MPa | 0.033 MPa | 0.091 GPa | 3.634 GPa | 7.268 GPa |
+| Gap / Au thickness | Empty-gap Hamaker | Au-filled Hamaker | Flat punch, two compliant slabs | Flat punch, supported lower slab |
+|---:|---:|---:|---:|---:|
+| 2.4 nm | 0.430 MPa | 0.357 MPa | 1.646 GPa | 3.291 GPa |
+| 2.5 nm | 0.381 MPa | 0.315 MPa | 1.714 GPa | 3.428 GPa |
+| 5.3 nm | 0.040 MPa | 0.033 MPa | 3.634 GPa | 7.268 GPa |
 
-The direct Hamaker attraction is therefore **sub-MPa** over the observed thickness range. The cohesion-energy scale is approximately **0.09–0.20 GPa**, while a fully conformal, linear-elastic flat-punch model gives **1.65–3.63 GPa** when the two flakes share the deformation and **3.29–7.27 GPa** when the lower flake is treated as supported.
+The direct Hamaker attraction is therefore **sub-MPa** over the observed thickness range, while a fully conformal, linear-elastic flat-punch model gives **1.65–3.63 GPa** when the two flakes share the deformation and **3.29–7.27 GPa** when the lower flake is treated as supported.
 
 These values are not a single predicted hydrostatic pressure. The Hamaker result is a direct long-range traction; Γ/d is an energy-density scale; and the flat-punch result is an elastic reaction-stress scale. At the annealing temperature, interfacial sliding, local debonding, MoS₂ bending, Au plasticity, diffusion, creep, and imperfect contact can all relax the elastic stress. The defensible conclusion is that the architecture can generate an **effective confinement scale from roughly 0.1 GPa to several GPa**, with the GPa values interpreted as ideal-elastic upper scales rather than a uniquely determined sustained pressure. This range is consistent with the broader pressure scales reported for nanoscale confinement in van der Waals heterostructures.<sup>1</sup>
 
@@ -151,7 +150,7 @@ The CSV sweep includes all three models, the Γ/d scale, and a Boolean flag for 
 
 ## Reviewer-response text
 
-> To provide a quantitative estimate of the confinement pressure, we compared three limiting descriptions for the experimental geometry: two approximately 50 nm thick MoS₂ flakes confining an Au nanodisc with a mean lateral diameter of approximately 50 nm and a thickness of 2.4–5.3 nm. A finite-slab Hamaker model gives only 0.43–0.040 MPa for direct MoS₂–MoS₂ attraction across an empty gap and approximately 0.36–0.033 MPa when an illustrative effective Au-filled Hamaker constant is used. An independent cohesion-energy scale, Γ/d, is 0.20–0.091 GPa. To account for the finite Au nanodisc, we also treated the disc as a circular flat punch acting on transversely anisotropic MoS₂. Using an out-of-plane indentation modulus of 53.9 GPa gives a mean elastic reaction stress of 1.65–3.63 GPa when the two flakes share the deformation, or 3.29–7.27 GPa when the lower flake is treated as supported. The approximately 50 nm flake thickness lies at the lower edge of the half-space validity criterion for a 50 nm disc; thinner flakes require a finite-layer anisotropic calculation. These estimates refer to distinct physical quantities and are not summed. Because sliding, bending, imperfect contact, Au plasticity and diffusion can relax stress during annealing, we interpret the result as evidence for an effective confinement scale of roughly 0.1 GPa to several GPa, rather than as a unique hydrostatic pressure. This quantitative range connects the observed Au restructuring to confined nanoscale synthesis while making the model assumptions explicit.
+> To provide a quantitative estimate of the confinement pressure, we compared three limiting descriptions for the experimental geometry: two approximately 50 nm thick MoS₂ flakes confining an Au nanodisc with a mean lateral diameter of approximately 50 nm and a thickness of 2.4–5.3 nm. A finite-slab Hamaker model gives only 0.43–0.040 MPa for direct MoS₂–MoS₂ attraction across an empty gap and approximately 0.36–0.033 MPa when an illustrative effective Au-filled Hamaker constant is used. To account for the finite Au nanodisc, we also treated the disc as a circular flat punch acting on transversely anisotropic MoS₂. Using an out-of-plane indentation modulus of 53.9 GPa gives a mean elastic reaction stress of 1.65–3.63 GPa when the two flakes share the deformation, or 3.29–7.27 GPa when the lower flake is treated as supported. The approximately 50 nm flake thickness lies at the lower edge of the half-space validity criterion for a 50 nm disc; thinner flakes require a finite-layer anisotropic calculation. These estimates refer to distinct physical quantities and are not summed. Because sliding, bending, imperfect contact, Au plasticity and diffusion can relax stress during annealing, we interpret the result as evidence for an effective confinement scale of roughly 0.1 GPa to several GPa, rather than as a unique hydrostatic pressure. This quantitative range connects the observed Au restructuring to confined nanoscale synthesis while making the model assumptions explicit.
 
 ## Assumptions and limitations
 
