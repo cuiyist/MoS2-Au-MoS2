@@ -24,7 +24,7 @@ For two 50 nm MoS₂ flakes and a 50 nm diameter Au disc:
 
 The direct Hamaker attraction is therefore **sub-MPa** over the observed thickness range, while a fully conformal, linear-elastic flat-punch model gives **1.65–3.63 GPa** when the two flakes share the deformation and **3.29–7.27 GPa** when the lower flake is treated as supported.
 
-These values are not a single predicted hydrostatic pressure. The Hamaker result is a direct long-range traction; Γ/d is an energy-density scale; and the flat-punch result is an elastic reaction-stress scale. At the annealing temperature, interfacial sliding, local debonding, MoS₂ bending, Au plasticity, diffusion, creep, and imperfect contact can all relax the elastic stress. The defensible conclusion is that the architecture can generate an **effective confinement scale from roughly 0.1 GPa to several GPa**, with the GPa values interpreted as ideal-elastic upper scales rather than a uniquely determined sustained pressure. This range is consistent with the broader pressure scales reported for nanoscale confinement in van der Waals heterostructures.<sup>1</sup>
+These values are not a single predicted hydrostatic pressure. The Hamaker result is a direct long-range traction, whereas the finite-disc contact result is an elastic reaction-stress scale; the two should not be added. At the annealing temperature, interfacial sliding, local debonding, MoS₂ bending, Au plasticity, diffusion, creep, and imperfect contact can all relax the ideal elastic stress. The defensible conclusion is therefore that direct long-range attraction is sub-MPa, while fully conformal finite-disc contact can generate a GPa-scale normal reaction. The GPa values should be interpreted as ideal-elastic upper scales rather than as a uniquely determined sustained pressure. This bracketing is consistent with the broader pressure scales reported for nanoscale confinement in van der Waals heterostructures.<sup>1</sup>
 
 ## Interactive parameter sweep
 
@@ -118,16 +118,6 @@ The diameter sensitivity at \(d=2.5\) nm is:
 
 The half-space approximation is most credible when \(t/a\gtrsim2\), equivalently \(t\gtrsim D\). The experimental point \(t\approx D\approx50\) nm is therefore near the lower edge of that regime. For thinner MoS₂, the script flags the result as an extrapolation; a finite-layer anisotropic contact calculation or finite-element model is needed to predict the thickness correction. The script deliberately does not hide this limitation behind an unsupported empirical correction.
 
-## Adhesion-energy cross-check
-
-A separate energy-density estimate is
-
-$$
-P_\Gamma=\frac{\Gamma}{d},
-$$
-
-with the experimentally measured MoS₂ cohesion energy \(\Gamma=0.482\pm0.032\ \mathrm{J\,m^{-2}}\).<sup>7</sup> Using the central value produces 0.201 GPa at 2.4 nm and 0.091 GPa at 5.3 nm. It is useful as a work-per-volume scale, but it is not the local derivative of the interaction potential and should not be added to the Hamaker or elastic-contact pressure.
-
 ## Reproduce the calculations
 
 The code uses only the Python standard library.
@@ -146,11 +136,7 @@ python3 pressure_models.py --sweep --output pressure_sweep.csv
 python3 -m unittest -v
 ```
 
-The CSV sweep includes all three models, the Γ/d scale, and a Boolean flag for the half-space validity criterion.
-
-## Reviewer-response text
-
-> To provide a quantitative estimate of the confinement pressure, we compared three limiting descriptions for the experimental geometry: two approximately 50 nm thick MoS₂ flakes confining an Au nanodisc with a mean lateral diameter of approximately 50 nm and a thickness of 2.4–5.3 nm. A finite-slab Hamaker model gives only 0.43–0.040 MPa for direct MoS₂–MoS₂ attraction across an empty gap and approximately 0.36–0.033 MPa when an illustrative effective Au-filled Hamaker constant is used. To account for the finite Au nanodisc, we also treated the disc as a circular flat punch acting on transversely anisotropic MoS₂. Using an out-of-plane indentation modulus of 53.9 GPa gives a mean elastic reaction stress of 1.65–3.63 GPa when the two flakes share the deformation, or 3.29–7.27 GPa when the lower flake is treated as supported. The approximately 50 nm flake thickness lies at the lower edge of the half-space validity criterion for a 50 nm disc; thinner flakes require a finite-layer anisotropic calculation. These estimates refer to distinct physical quantities and are not summed. Because sliding, bending, imperfect contact, Au plasticity and diffusion can relax stress during annealing, we interpret the result as evidence for an effective confinement scale of roughly 0.1 GPa to several GPa, rather than as a unique hydrostatic pressure. This quantitative range connects the observed Au restructuring to confined nanoscale synthesis while making the model assumptions explicit.
+The CSV sweep includes the model outputs and a Boolean flag for the half-space validity criterion.
 
 ## Assumptions and limitations
 
@@ -169,4 +155,3 @@ The CSV sweep includes all three models, the Γ/d scale, and a Boolean flag for 
 4. Boschetto, G., Carapezzi, S. & Todri-Sanial, A. Non-volatile resistive switching mechanism in single-layer MoS₂ memristors: insights from *ab initio* modelling of Au and MoS₂ interfaces. *Nanoscale Adv.* **5**, 4203–4212 (2023). [https://doi.org/10.1039/D3NA00045A](https://doi.org/10.1039/D3NA00045A)
 5. Vlassak, J. J. & Nix, W. D. Indentation modulus of elastically anisotropic half spaces. *Philos. Mag. A* **67**, 1045–1056 (1993). [https://doi.org/10.1080/01418619308224756](https://doi.org/10.1080/01418619308224756)
 6. Yengejeh, S. I., Liu, J., Kazemi, S. A., Wen, W. & Wang, Y. Effect of structural phases on mechanical properties of molybdenum disulfide. *ACS Omega* **5**, 5994–6002 (2020). [https://doi.org/10.1021/acsomega.9b04360](https://doi.org/10.1021/acsomega.9b04360)
-7. Rokni, H. & Lu, W. Direct measurements of interfacial adhesion in 2D materials and van der Waals heterostructures in ambient air. *Nat. Commun.* **11**, 5607 (2020). [https://doi.org/10.1038/s41467-020-19411-7](https://doi.org/10.1038/s41467-020-19411-7)
