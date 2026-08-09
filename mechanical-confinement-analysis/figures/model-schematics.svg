@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Three mechanical-confinement models for MoS2-Au-MoS2</title>
+  <desc id="desc">Schematics of an empty gap Hamaker model, an Au-filled Hamaker model, and a finite 50 nanometer gold disc elastic-contact model.</desc>
+  <defs>
+    <linearGradient id="mos2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#173f5f"/>
+      <stop offset="1" stop-color="#20639b"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe38a"/>
+      <stop offset="1" stop-color="#d79b00"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d1495b"/>
+    </marker>
+    <style>
+      .panel{fill:#fbfcfe;stroke:#d5dbe5;stroke-width:2}.title{font:700 21px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#17202a}.label{font:16px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#2d3748}.small{font:14px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;fill:#536170}.slab{fill:url(#mos2);stroke:#102f47;stroke-width:2}.gold{fill:url(#gold);stroke:#9a6d00;stroke-width:2}.force{stroke:#d1495b;stroke-width:3;marker-start:url(#arrow);marker-end:url(#arrow)}.dim{stroke:#526271;stroke-width:2}.surface{fill:none;stroke:#20639b;stroke-width:17;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+  </defs>
+  <rect width="1200" height="360" fill="#ffffff"/>
+
+  <g transform="translate(18 18)">
+    <rect class="panel" width="370" height="324" rx="16"/>
+    <text class="title" x="185" y="38" text-anchor="middle">1 · Hamaker, empty gap</text>
+    <rect class="slab" x="35" y="80" width="300" height="55" rx="5"/>
+    <rect class="slab" x="35" y="220" width="300" height="55" rx="5"/>
+    <text class="label" x="185" y="113" fill="#fff" text-anchor="middle">MoS₂ · thickness t</text>
+    <text class="label" x="185" y="253" fill="#fff" text-anchor="middle">MoS₂ · thickness t</text>
+    <line class="force" x1="185" y1="155" x2="185" y2="200"/>
+    <text class="label" x="208" y="183">d</text>
+    <text class="small" x="185" y="306" text-anchor="middle">direct MoS₂–MoS₂ attraction</text>
+  </g>
+
+  <g transform="translate(415 18)">
+    <rect class="panel" width="370" height="324" rx="16"/>
+    <text class="title" x="185" y="38" text-anchor="middle">2 · Hamaker, Au-filled</text>
+    <rect class="slab" x="35" y="80" width="300" height="55" rx="5"/>
+    <rect class="gold" x="35" y="142" width="300" height="71" rx="5"/>
+    <rect class="slab" x="35" y="220" width="300" height="55" rx="5"/>
+    <text class="label" x="185" y="113" fill="#fff" text-anchor="middle">MoS₂</text>
+    <text class="label" x="185" y="183" text-anchor="middle">Au · thickness d</text>
+    <text class="label" x="185" y="253" fill="#fff" text-anchor="middle">MoS₂</text>
+    <text class="small" x="185" y="306" text-anchor="middle">effective multilayer interaction</text>
+  </g>
+
+  <g transform="translate(812 18)">
+    <rect class="panel" width="370" height="324" rx="16"/>
+    <text class="title" x="185" y="38" text-anchor="middle">3 · Finite-disc elastic contact</text>
+    <path class="surface" d="M40 112 L113 112 C137 112 145 80 170 76 L200 76 C225 80 233 112 257 112 L330 112"/>
+    <path class="surface" d="M40 244 L113 244 C137 244 145 276 170 280 L200 280 C225 276 233 244 257 244 L330 244"/>
+    <rect class="gold" x="145" y="140" width="80" height="76" rx="9"/>
+    <line class="force" x1="185" y1="52" x2="185" y2="74"/>
+    <line class="force" x1="185" y1="282" x2="185" y2="304"/>
+    <line class="dim" x1="145" y1="232" x2="225" y2="232"/>
+    <line class="dim" x1="145" y1="225" x2="145" y2="239"/>
+    <line class="dim" x1="225" y1="225" x2="225" y2="239"/>
+    <text class="label" x="185" y="169" text-anchor="middle">Au</text>
+    <text class="label" x="185" y="192" text-anchor="middle">d</text>
+    <text class="label" x="185" y="257" text-anchor="middle">D ≈ 50 nm</text>
+    <text class="small" x="185" y="326" text-anchor="middle">anisotropic reaction-stress scale</text>
+  </g>
+</svg>
