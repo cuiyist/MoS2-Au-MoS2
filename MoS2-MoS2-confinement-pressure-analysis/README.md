@@ -1,4 +1,4 @@
-# Confinement-pressure estimates for MoS₂–Au–MoS₂ nanogaps
+# MoS2-MoS2 confinement pressure analysis
 
 [**Launch the interactive confinement-pressure explorer →**](https://cuiyist.github.io/MoS2-Au-MoS2/)
 

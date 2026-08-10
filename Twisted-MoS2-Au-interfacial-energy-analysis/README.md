@@ -1,4 +1,4 @@
-# Density-functional-theory workflow
+# Twisted MoS2-Au Interfacial Energy Analysis
 
 This directory contains an exploratory ASE/GPAW workflow for studying twist-dependent MoS2-Au interfacial structures. It is a research snapshot rather than a turnkey software package: the reference structure and primary relaxation input are included, while some structure-building and plotting scripts still point to uncommitted local inputs.
 
@@ -56,7 +56,7 @@ Because GPAW builds and launch configurations depend on the computing environmen
 Start with the included CIF or adapt `merge.py` to combine your own MoS2 and Au structures. Before using `rotate.py`, replace its absolute `path`, verify `shift_vec` is the intended rotation center, and set the desired angle.
 
 ~~~bash
-cd DFT
+cd Twisted-MoS2-Au-interfacial-energy-analysis
 python3 rotate.py
 ~~~
 
@@ -78,7 +78,7 @@ The included `1 x 1 x 1` k-point mesh and 600 eV cutoff document the original in
 For a configured local GPAW environment:
 
 ~~~bash
-cd DFT
+cd Twisted-MoS2-Au-interfacial-energy-analysis
 python3 job.py
 ~~~
 

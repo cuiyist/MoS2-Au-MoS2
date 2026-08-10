@@ -15,23 +15,23 @@ The explorer compares three models for the experimentally relevant geometry: two
 2. Finite-slab Hamaker pressure with Au filling the gap.
 3. Finite-disc elastic-contact reaction stress.
 
-![Schematics of the three confinement-pressure models](confinement-pressure-analysis/figures/model-schematics.svg)
+![Schematics of the three confinement-pressure models](MoS2-MoS2-confinement-pressure-analysis/figures/model-schematics.svg)
 
 The Hamaker estimates are sub-MPa over the observed thickness range. The fully conformal elastic-contact model gives a GPa-scale normal reaction, which should be interpreted as an ideal-elastic upper scale rather than a uniquely determined sustained pressure. The models answer different physical questions and should not be added together.
 
-For equations, parameter sweeps, assumptions, references, and tests, see the [confinement-pressure analysis](confinement-pressure-analysis/README.md).
+For equations, parameter sweeps, assumptions, references, and tests, see the [MoS2-MoS2 confinement pressure analysis](MoS2-MoS2-confinement-pressure-analysis/README.md).
 
 ## Repository layout
 
 ~~~text
 .
 |-- README.md
-|-- confinement-pressure-analysis/
+|-- MoS2-MoS2-confinement-pressure-analysis/
 |   |-- pressure_models.py       # command-line model and CSV sweep
 |   |-- test_pressure_models.py  # regression tests
 |   |-- docs/index.html          # interactive explorer source
 |   `-- figures/                # model schematic and preview
-`-- DFT/
+`-- Twisted-MoS2-Au-interfacial-energy-analysis/
     |-- README.md                # DFT workflow and reproducibility notes
     |-- moire_supercell_MoS2-3DAu_30.cif
     |-- rotate.py / merge.py     # structure preparation
@@ -44,7 +44,7 @@ For equations, parameter sweeps, assumptions, references, and tests, see the [co
 The pressure model uses only the Python standard library.
 
 ~~~bash
-cd confinement-pressure-analysis
+cd MoS2-MoS2-confinement-pressure-analysis
 
 # Experimental reference geometry
 python3 pressure_models.py --mos2-thickness 50 --gap 2.4 --diameter 50
@@ -62,11 +62,11 @@ python3 -m http.server 8000 --directory docs
 
 Then open `http://localhost:8000`.
 
-## DFT workflow
+## Twisted MoS2-Au Interfacial Energy Analysis
 
-The `DFT` directory is a research snapshot built around ASE and GPAW. It includes a 296-atom reference structure (`Mo56 S112 Au128`), a vdW-DF-cx plane-wave relaxation script, structure-manipulation scripts, and an energy-fitting script.
+The `Twisted-MoS2-Au-interfacial-energy-analysis` directory is a research snapshot built around ASE and GPAW. It includes a 296-atom reference structure (`Mo56 S112 Au128`), a vdW-DF-cx plane-wave relaxation script, structure-manipulation scripts, and an energy-fitting script.
 
-Several scripts contain machine-specific paths or refer to source data that are not committed. Read [DFT/README.md](DFT/README.md) before running or adapting them. The historical [`DensityFunctionalTheory`](https://github.com/cuiyist/MoS2-Au-MoS2/tree/DensityFunctionalTheory) branch is retained for provenance; the fuller DFT snapshot is maintained in `DFT/` on `main`.
+Several scripts contain machine-specific paths or refer to source data that are not committed. Read the [Twisted MoS2-Au Interfacial Energy Analysis README](Twisted-MoS2-Au-interfacial-energy-analysis/README.md) before running or adapting them. The historical [`DensityFunctionalTheory`](https://github.com/cuiyist/MoS2-Au-MoS2/tree/DensityFunctionalTheory) branch is retained for provenance; the fuller DFT snapshot is maintained in `Twisted-MoS2-Au-interfacial-energy-analysis/` on `main`.
 
 ## Scope and reproducibility
 
@@ -75,4 +75,4 @@ Several scripts contain machine-specific paths or refer to source data that are 
 - The finite-disc result assumes linear elasticity and full conformal contact and is best treated as an upper stress scale.
 - The DFT scripts are starting points for reproducing the original calculations. Convergence settings, input structures, paths, and computing resources should be revalidated for a new environment.
 
-When reusing results, cite the underlying literature listed in the [analysis README](confinement-pressure-analysis/README.md#references) in addition to the associated manuscript.
+When reusing results, cite the underlying literature listed in the [analysis README](MoS2-MoS2-confinement-pressure-analysis/README.md#references) in addition to the associated manuscript.
