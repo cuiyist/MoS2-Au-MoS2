@@ -1,8 +1,8 @@
-# DFT structure rotation
+# Twisted MoS2-Au Interfacial Energy Analysis
 
 This historical branch preserves the original utility used to rotate an Au layer relative to an MoS2 lattice. It contains one extensionless Python script, `rotate`.
 
-The more complete DFT snapshot - including a reference CIF, GPAW relaxation input, SLURM launcher, structure utilities, and energy-fitting script - is documented in [`DFT/` on the `main` branch](https://github.com/cuiyist/MoS2-Au-MoS2/tree/main/DFT).
+The more complete analysis snapshot - including a reference CIF, GPAW relaxation input, SLURM launcher, structure utilities, and energy-fitting script - is documented in [`Twisted-MoS2-Au-interfacial-energy-analysis/` on the `main` branch](https://github.com/cuiyist/MoS2-Au-MoS2/tree/main/Twisted-MoS2-Au-interfacial-energy-analysis).
 
 ## What the script does
 
@@ -39,7 +39,7 @@ This branch does not include the input CIF and the script is not portable withou
 - `theta` - set the intended angle and sign convention; and
 - output filename - avoid overwriting an existing structure.
 
-The input structure is available in the [maintained DFT directory on `main`](https://github.com/cuiyist/MoS2-Au-MoS2/blob/main/DFT/moire_supercell_MoS2-3DAu_30.cif).
+The input structure is available in the [maintained interfacial-energy analysis directory on `main`](https://github.com/cuiyist/MoS2-Au-MoS2/blob/main/Twisted-MoS2-Au-interfacial-energy-analysis/moire_supercell_MoS2-3DAu_30.cif).
 
 After adapting the paths and parameters:
 
@@ -57,4 +57,4 @@ Before using a generated structure in an electronic-structure calculation:
 - wrap atoms into the periodic cell if required by the downstream workflow; and
 - retain the exact input structure and rotation parameters with the calculation record.
 
-This script prepares geometry only; it does not run DFT or calculate an energy. See the [main project README](https://github.com/cuiyist/MoS2-Au-MoS2) for the confinement-pressure analysis and the fuller DFT workflow.
+This script prepares geometry only; it does not run DFT or calculate an energy. See the [main project README](https://github.com/cuiyist/MoS2-Au-MoS2) for the confinement-pressure analysis and the fuller interfacial-energy workflow.
