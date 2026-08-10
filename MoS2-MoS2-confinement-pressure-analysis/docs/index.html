@@ -875,7 +875,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;div id=&quot;mos2-pressure-50nm&quot;&gt;
-  &lt;div class=&quot;mpm-schematics&quot; aria-label=&quot;Three confinement-pressure models&quot;&gt;
+  &lt;div class=&quot;mpm-schematics&quot; aria-label=&quot;Two confinement-pressure models&quot;&gt;
     &lt;div class=&quot;mpm-schematic-wrap&quot;&gt;
       &lt;div class=&quot;mpm-schematic-label&quot;&gt;Hamaker · empty gap&lt;/div&gt;
       &lt;svg class=&quot;mpm-schematic&quot; viewBox=&quot;0 0 260 118&quot; role=&quot;img&quot; aria-label=&quot;Two finite molybdenum disulfide slabs separated by an empty gap&quot;&gt;
@@ -890,19 +890,8 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;/svg&gt;
     &lt;/div&gt;
     &lt;div class=&quot;mpm-schematic-wrap&quot;&gt;
-      &lt;div class=&quot;mpm-schematic-label&quot;&gt;Hamaker · Au-filled gap&lt;/div&gt;
-      &lt;svg class=&quot;mpm-schematic&quot; viewBox=&quot;0 0 260 118&quot; role=&quot;img&quot; aria-label=&quot;Two finite molybdenum disulfide slabs separated by a continuous gold layer&quot;&gt;
-        &lt;rect x=&quot;8&quot; y=&quot;15&quot; width=&quot;244&quot; height=&quot;28&quot; class=&quot;mpm-mos2-fill&quot;&gt;&lt;/rect&gt;
-        &lt;rect x=&quot;8&quot; y=&quot;75&quot; width=&quot;244&quot; height=&quot;28&quot; class=&quot;mpm-mos2-fill&quot;&gt;&lt;/rect&gt;
-        &lt;rect x=&quot;8&quot; y=&quot;46&quot; width=&quot;244&quot; height=&quot;26&quot; class=&quot;mpm-au-fill&quot;&gt;&lt;/rect&gt;
-        &lt;text x=&quot;130&quot; y=&quot;33&quot; class=&quot;mpm-schematic-text&quot;&gt;MoS₂&lt;/text&gt;
-        &lt;text x=&quot;130&quot; y=&quot;63&quot; class=&quot;mpm-schematic-text&quot;&gt;Au, thickness d&lt;/text&gt;
-        &lt;text x=&quot;130&quot; y=&quot;93&quot; class=&quot;mpm-schematic-text&quot;&gt;MoS₂&lt;/text&gt;
-      &lt;/svg&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;mpm-schematic-wrap&quot;&gt;
-      &lt;div class=&quot;mpm-schematic-label&quot;&gt;Finite disc · elastic contact&lt;/div&gt;
-      &lt;svg class=&quot;mpm-schematic&quot; viewBox=&quot;0 0 260 118&quot; role=&quot;img&quot; aria-label=&quot;A finite gold nanodisc separating and deforming two molybdenum disulfide slabs&quot;&gt;
+      &lt;div class=&quot;mpm-schematic-label&quot;&gt;Finite disc · free-standing elastic contact&lt;/div&gt;
+      &lt;svg class=&quot;mpm-schematic&quot; viewBox=&quot;0 0 260 118&quot; role=&quot;img&quot; aria-label=&quot;A finite gold nanodisc freely encapsulated between two compliant molybdenum disulfide flakes&quot;&gt;
         &lt;path d=&quot;M8,37 L84,37 C100,37 104,20 120,17 L140,17 C156,20 160,37 176,37 L252,37&quot; class=&quot;mpm-mos2-path&quot;&gt;&lt;/path&gt;
         &lt;path d=&quot;M8,81 L84,81 C100,81 104,98 120,101 L140,101 C156,98 160,81 176,81 L252,81&quot; class=&quot;mpm-mos2-path&quot;&gt;&lt;/path&gt;
         &lt;rect x=&quot;105&quot; y=&quot;45&quot; width=&quot;50&quot; height=&quot;28&quot; rx=&quot;5&quot; class=&quot;mpm-au-fill&quot;&gt;&lt;/rect&gt;
@@ -923,7 +912,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;input id=&quot;mpm-thickness&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;10&quot; max=&quot;100&quot; step=&quot;1&quot; value=&quot;50&quot;&gt;
     &lt;/label&gt;
     &lt;label class=&quot;form-label&quot; for=&quot;mpm-gap&quot;&gt;
-      Gap / Au thickness &lt;span id=&quot;mpm-gap-value&quot;&gt;2.5 nm&lt;/span&gt;
+      Gap / disc thickness &lt;span id=&quot;mpm-gap-value&quot;&gt;2.5 nm&lt;/span&gt;
       &lt;input id=&quot;mpm-gap&quot; class=&quot;form-range&quot; type=&quot;range&quot; min=&quot;1&quot; max=&quot;8&quot; step=&quot;0.1&quot; value=&quot;2.5&quot;&gt;
     &lt;/label&gt;
     &lt;label class=&quot;form-label&quot; for=&quot;mpm-diameter&quot;&gt;
@@ -934,16 +923,15 @@ html&gt;body{padding:0}&lt;/style&gt;
 
   &lt;div class=&quot;mpm-legend viz-row&quot; aria-label=&quot;Pressure models&quot;&gt;
     &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-empty&quot;&gt;&lt;/i&gt;Hamaker, empty gap&lt;/span&gt;
-    &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-au&quot;&gt;&lt;/i&gt;Hamaker, Au-filled&lt;/span&gt;
-    &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-elastic&quot;&gt;&lt;/i&gt;Finite disc · elastic contact&lt;/span&gt;
+    &lt;span&gt;&lt;i class=&quot;mpm-swatch mpm-elastic&quot;&gt;&lt;/i&gt;Finite disc · free-standing elastic contact&lt;/span&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;mpm-plots&quot;&gt;
     &lt;div class=&quot;mpm-plot-wrap&quot;&gt;
       &lt;div class=&quot;mpm-plot-label&quot;&gt;Pressure vs gap thickness&lt;/div&gt;
       &lt;svg id=&quot;mpm-gap-chart&quot; class=&quot;mpm-chart&quot; viewBox=&quot;0 0 360 300&quot; role=&quot;img&quot; aria-labelledby=&quot;mpm-gap-title mpm-gap-desc&quot;&gt;
-        &lt;title id=&quot;mpm-gap-title&quot;&gt;Pressure as a function of gap or gold thickness&lt;/title&gt;
-        &lt;desc id=&quot;mpm-gap-desc&quot;&gt;Logarithmic comparison of empty-gap Hamaker pressure, gold-filled Hamaker pressure, and finite-disc elastic reaction stress.&lt;/desc&gt;
+        &lt;title id=&quot;mpm-gap-title&quot;&gt;Pressure as a function of gap or disc thickness&lt;/title&gt;
+        &lt;desc id=&quot;mpm-gap-desc&quot;&gt;Logarithmic comparison of empty-gap Hamaker pressure and free-standing finite-disc elastic reaction stress.&lt;/desc&gt;
       &lt;/svg&gt;
     &lt;/div&gt;
     &lt;div class=&quot;mpm-plot-wrap&quot;&gt;
@@ -961,10 +949,8 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;tr&gt;&lt;th&gt;Method at selected geometry&lt;/th&gt;&lt;th class=&quot;text-end&quot;&gt;Pressure&lt;/th&gt;&lt;th&gt;Interpretation&lt;/th&gt;&lt;/tr&gt;
       &lt;/thead&gt;
       &lt;tbody&gt;
-        &lt;tr&gt;&lt;td&gt;Direct Hamaker pressure, empty gap&lt;/td&gt;&lt;td id=&quot;mpm-p-empty&quot; class=&quot;text-end text-nowrap&quot;&gt;&lt;/td&gt;&lt;td&gt;MoS₂ | vacuum/Ar | MoS₂&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;Direct Hamaker pressure through Au&lt;/td&gt;&lt;td id=&quot;mpm-p-au&quot; class=&quot;text-end text-nowrap&quot;&gt;&lt;/td&gt;&lt;td&gt;Approximate MoS₂ | Au | MoS₂ term&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;Finite disc · elastic contact: two compliant MoS₂ slabs&lt;/td&gt;&lt;td id=&quot;mpm-p-elastic-two&quot; class=&quot;text-end text-nowrap&quot;&gt;&lt;/td&gt;&lt;td&gt;Anisotropic half-space estimate&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;Finite disc · elastic contact: supported lower slab&lt;/td&gt;&lt;td id=&quot;mpm-p-elastic-rigid&quot; class=&quot;text-end text-nowrap&quot;&gt;&lt;/td&gt;&lt;td&gt;Upper elastic-contact estimate&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Direct Hamaker pressure, empty gap&lt;/td&gt;&lt;td id=&quot;mpm-p-empty&quot; class=&quot;text-end text-nowrap&quot;&gt;&lt;/td&gt;&lt;td&gt;Empirical A = 0.70 eV scale for MoS₂ | vacuum/Ar | MoS₂&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Finite disc · free-standing elastic contact&lt;/td&gt;&lt;td id=&quot;mpm-p-elastic&quot; class=&quot;text-end text-nowrap&quot;&gt;&lt;/td&gt;&lt;td&gt;Two compliant MoS₂ flakes share the deformation&lt;/td&gt;&lt;/tr&gt;
       &lt;/tbody&gt;
     &lt;/table&gt;
   &lt;/div&gt;
@@ -979,7 +965,7 @@ html&gt;body{padding:0}&lt;/style&gt;
   }
   #mos2-pressure-50nm .mpm-schematics {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
     margin-bottom: 10px;
   }
@@ -1056,13 +1042,8 @@ html&gt;body{padding:0}&lt;/style&gt;
     height: 3px;
     border-radius: 2px;
   }
-  #mos2-pressure-50nm .mpm-elastic { background: var(--viz-series-1); height: 7px; opacity: .65; }
+  #mos2-pressure-50nm .mpm-elastic { background: var(--viz-series-1); }
   #mos2-pressure-50nm .mpm-empty { background: var(--viz-series-3); }
-  #mos2-pressure-50nm .mpm-au {
-    height: 0;
-    background: transparent;
-    border-top: 3px dashed var(--viz-series-4);
-  }
   #mos2-pressure-50nm .mpm-plots {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1103,10 +1084,6 @@ html&gt;body{padding:0}&lt;/style&gt;
     fill: var(--muted-foreground);
     font-size: 11px;
   }
-  #mos2-pressure-50nm .mpm-band {
-    fill: var(--viz-series-1);
-    opacity: .16;
-  }
   #mos2-pressure-50nm .mpm-line {
     fill: none;
     stroke-width: 2.2;
@@ -1114,7 +1091,6 @@ html&gt;body{padding:0}&lt;/style&gt;
   }
   #mos2-pressure-50nm .mpm-line-elastic { stroke: var(--viz-series-1); }
   #mos2-pressure-50nm .mpm-line-empty { stroke: var(--viz-series-3); }
-  #mos2-pressure-50nm .mpm-line-au { stroke: var(--viz-series-4); stroke-dasharray: 6 4; }
   #mos2-pressure-50nm .mpm-marker {
     stroke: var(--background);
     stroke-width: 1.5;
@@ -1122,7 +1098,6 @@ html&gt;body{padding:0}&lt;/style&gt;
   }
   #mos2-pressure-50nm .mpm-marker-elastic { fill: var(--viz-series-1); }
   #mos2-pressure-50nm .mpm-marker-empty { fill: var(--viz-series-3); }
-  #mos2-pressure-50nm .mpm-marker-au { fill: var(--viz-series-4); }
   #mos2-pressure-50nm .mpm-guide {
     stroke: var(--muted-foreground);
     stroke-width: 1;
@@ -1154,17 +1129,13 @@ html&gt;body{padding:0}&lt;/style&gt;
     gap: root.querySelector(&#x27;#mpm-gap-value&#x27;),
     diameter: root.querySelector(&#x27;#mpm-diameter-value&#x27;),
     schematicDiameter: root.querySelector(&#x27;#mpm-schematic-diameter&#x27;),
-    elasticTwo: root.querySelector(&#x27;#mpm-p-elastic-two&#x27;),
-    elasticRigid: root.querySelector(&#x27;#mpm-p-elastic-rigid&#x27;),
+    elastic: root.querySelector(&#x27;#mpm-p-elastic&#x27;),
     empty: root.querySelector(&#x27;#mpm-p-empty&#x27;),
-    au: root.querySelector(&#x27;#mpm-p-au&#x27;),
     detail: root.querySelector(&#x27;#mpm-detail&#x27;)
   };
 
   const constants = {
-    electronVolt: 1.602176634e-19,
     hamakerEmpty: 0.70 * 1.602176634e-19,
-    hamakerAu: 0.58 * 1.602176634e-19,
     indentationModulus: 53.85e9
   };
 
@@ -1190,20 +1161,16 @@ html&gt;body{padding:0}&lt;/style&gt;
     return hamaker * finiteSlabFactor(d, t) / (6 * Math.PI);
   }
 
-  function elasticPressure(gapNm, thicknessNm, diameterNm) {
+  function elasticPressure(gapNm, diameterNm) {
     const h = gapNm * 1e-9;
     const a = diameterNm * 0.5e-9;
-    const twoPlates = constants.indentationModulus * h / (Math.PI * a);
-    return { twoPlates, rigidBase: 2 * twoPlates };
+    return constants.indentationModulus * h / (Math.PI * a);
   }
 
   function pressures(gapNm, thicknessNm, diameterNm) {
-    const elastic = elasticPressure(gapNm, thicknessNm, diameterNm);
     return {
-      elastic: elastic.twoPlates,
-      rigid: elastic.rigidBase,
-      empty: hamakerPressure(constants.hamakerEmpty, gapNm, thicknessNm),
-      au: hamakerPressure(constants.hamakerAu, gapNm, thicknessNm)
+      elastic: elasticPressure(gapNm, diameterNm),
+      empty: hamakerPressure(constants.hamakerEmpty, gapNm, thicknessNm)
     };
   }
 
@@ -1235,12 +1202,6 @@ html&gt;body{padding:0}&lt;/style&gt;
 
   function pathFrom(points) {
     return points.map((point, index) =&gt; `${index ? &#x27;L&#x27; : &#x27;M&#x27;}${point.x.toFixed(2)},${point.y.toFixed(2)}`).join(&#x27; &#x27;);
-  }
-
-  function bandPath(lower, upper) {
-    const first = pathFrom(lower);
-    const back = upper.slice().reverse().map(point =&gt; `L${point.x.toFixed(2)},${point.y.toFixed(2)}`).join(&#x27; &#x27;);
-    return `${first} ${back} Z`;
   }
 
   function addText(svg, text, x, y, className, anchor = &#x27;middle&#x27;) {
@@ -1300,7 +1261,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     const xTicks = isGap ? [1, 2, 3, 4, 5, 6, 7, 8] : [10, 25, 50, 75, 100];
     const selectedX = isGap ? state.gapNm : state.thicknessNm;
     const samples = 91;
-    const arrays = { elastic: [], rigid: [], empty: [], au: [] };
+    const arrays = { elastic: [], empty: [] };
 
     for (let i = 0; i &lt; samples; i += 1) {
       const xValue = xMin + (xMax - xMin) * i / (samples - 1);
@@ -1314,13 +1275,11 @@ html&gt;body{padding:0}&lt;/style&gt;
     const key = mode;
     const old = previous.get(key);
     svg.querySelectorAll(&#x27;.mpm-dynamic&#x27;).forEach(node =&gt; node.remove());
-    if (!svg.querySelector(&#x27;.mpm-axis&#x27;)) buildFrame(svg, xMin, xMax, xTicks, isGap ? &#x27;Gap / Au thickness (nm)&#x27; : &#x27;MoS₂ thickness (nm)&#x27;);
+    if (!svg.querySelector(&#x27;.mpm-axis&#x27;)) buildFrame(svg, xMin, xMax, xTicks, isGap ? &#x27;Gap / disc thickness (nm)&#x27; : &#x27;MoS₂ thickness (nm)&#x27;);
 
     const group = makeSvg(&#x27;g&#x27;, { class: &#x27;mpm-dynamic&#x27; });
-    const band = makeSvg(&#x27;path&#x27;, { class: &#x27;mpm-band&#x27; });
     const paths = {
       empty: makeSvg(&#x27;path&#x27;, { class: &#x27;mpm-line mpm-line-empty&#x27; }),
-      au: makeSvg(&#x27;path&#x27;, { class: &#x27;mpm-line mpm-line-au&#x27; }),
       elastic: makeSvg(&#x27;path&#x27;, { class: &#x27;mpm-line mpm-line-elastic&#x27; })
     };
     if (!isGap) {
@@ -1337,8 +1296,6 @@ html&gt;body{padding:0}&lt;/style&gt;
       validityLabel.setAttribute(&#x27;aria-hidden&#x27;, &#x27;true&#x27;);
     }
     group.appendChild(paths.empty);
-    group.appendChild(paths.au);
-    group.appendChild(band);
     group.appendChild(paths.elastic);
 
     const selected = pressures(state.gapNm, state.thicknessNm, state.diameterNm);
@@ -1350,7 +1307,6 @@ html&gt;body{padding:0}&lt;/style&gt;
     }));
     const markers = [
       [&#x27;empty&#x27;, selected.empty, &#x27;mpm-marker-empty&#x27;],
-      [&#x27;au&#x27;, selected.au, &#x27;mpm-marker-au&#x27;],
       [&#x27;elastic&#x27;, selected.elastic, &#x27;mpm-marker-elastic&#x27;]
     ];
     markers.forEach(([, value, className]) =&gt; {
@@ -1366,7 +1322,6 @@ html&gt;body{padding:0}&lt;/style&gt;
       Object.keys(arrays).forEach(name =&gt; {
         current[name] = interpolateArrays(old &amp;&amp; old[name], arrays[name], fraction);
       });
-      band.setAttribute(&#x27;d&#x27;, bandPath(current.elastic, current.rigid));
       Object.keys(paths).forEach(name =&gt; paths[name].setAttribute(&#x27;d&#x27;, pathFrom(current[name])));
     }
 
@@ -1396,17 +1351,15 @@ html&gt;body{padding:0}&lt;/style&gt;
     outputs.schematicDiameter.textContent = `${state.diameterNm.toFixed(0)} nm`;
 
     const p = pressures(state.gapNm, state.thicknessNm, state.diameterNm);
-    outputs.elasticTwo.textContent = formatPressure(p.elastic);
-    outputs.elasticRigid.textContent = formatPressure(p.rigid);
+    outputs.elastic.textContent = formatPressure(p.elastic);
     outputs.empty.textContent = formatPressure(p.empty);
-    outputs.au.textContent = formatPressure(p.au);
 
     const halfSpaceEmpty = constants.hamakerEmpty / (6 * Math.PI * (state.gapNm * 1e-9) ** 3);
     const slabRatio = p.empty / halfSpaceEmpty;
-    const ratio = p.elastic / p.au;
+    const ratio = p.elastic / p.empty;
     const thicknessRatio = state.thicknessNm / (state.diameterNm / 2);
     const validity = thicknessRatio &gt;= 2 ? &#x27;half-space regime&#x27; : &#x27;finite-thickness correction needed&#x27;;
-    outputs.detail.textContent = `t/a = ${thicknessRatio.toFixed(2)} (${validity}) · Hamaker correction: ${(100 * slabRatio).toFixed(2)}% of half-space · Elastic/Au-Hamaker ratio: ${ratio.toLocaleString(undefined, { maximumFractionDigits: 0 })}×`;
+    outputs.detail.textContent = `t/a = ${thicknessRatio.toFixed(2)} (${validity}) · Hamaker correction: ${(100 * slabRatio).toFixed(2)}% of half-space · Elastic/Hamaker ratio: ${ratio.toLocaleString(undefined, { maximumFractionDigits: 0 })}×`;
 
     drawChart(root.querySelector(&#x27;#mpm-gap-chart&#x27;), &#x27;gap&#x27;, animate);
     drawChart(root.querySelector(&#x27;#mpm-thickness-chart&#x27;), &#x27;thickness&#x27;, animate);

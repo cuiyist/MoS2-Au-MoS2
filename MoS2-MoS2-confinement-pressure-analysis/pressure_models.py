@@ -21,11 +21,9 @@ NM = 1e-9
 
 @dataclass(frozen=True)
 class ModelParameters:
-    """Material parameters used by the three comparison models."""
+    """Material parameters used by the two comparison models."""
 
     hamaker_empty_j: float = 0.70 * EV_TO_J
-    hamaker_au_filled_j: float = 0.58 * EV_TO_J
-    cohesion_j_m2: float = 0.482
     c11_pa: float = 238.0 * GPA
     c33_pa: float = 52.0 * GPA
     c13_pa: float = 23.0 * GPA
@@ -78,31 +76,21 @@ def half_space_hamaker_pressure(gap_m: float, hamaker_j: float) -> float:
     return hamaker_j / (6.0 * math.pi * gap_m**3)
 
 
-def adhesion_energy_scale(gap_m: float, cohesion_j_m2: float) -> float:
-    """Return Gamma/d in Pa; this is an energy-density scale, not a local traction."""
-
-    if gap_m <= 0 or cohesion_j_m2 <= 0:
-        raise ValueError("gap and cohesion energy must be positive")
-    return cohesion_j_m2 / gap_m
-
-
-def flat_punch_pressures(
+def free_standing_flat_punch_pressure(
     imposed_displacement_m: float,
     disc_diameter_m: float,
     modulus_pa: float,
-) -> tuple[float, float]:
-    """Return mean pressures for two compliant slabs and a supported lower slab.
+) -> float:
+    """Return the mean pressure for two compliant, free-standing MoS2 flakes.
 
-    The first result lets two identical slabs share the imposed relative
-    displacement. The second assigns the full displacement to one slab.
+    The two identical flakes share the imposed relative displacement equally,
+    so each flake accommodates half of the Au-disc thickness.
     """
 
     if imposed_displacement_m <= 0 or disc_diameter_m <= 0 or modulus_pa <= 0:
         raise ValueError("displacement, diameter, and modulus must be positive")
     radius_m = disc_diameter_m / 2.0
-    two_compliant = modulus_pa * imposed_displacement_m / (math.pi * radius_m)
-    supported_lower = 2.0 * two_compliant
-    return two_compliant, supported_lower
+    return modulus_pa * imposed_displacement_m / (math.pi * radius_m)
 
 
 def evaluate_geometry(
@@ -117,9 +105,8 @@ def evaluate_geometry(
     d = gap_nm * NM
     diameter = diameter_nm * NM
     modulus = indentation_modulus(params)
-    two_compliant, supported_lower = flat_punch_pressures(d, diameter, modulus)
+    free_standing = free_standing_flat_punch_pressure(d, diameter, modulus)
     empty = hamaker_pressure(d, t, params.hamaker_empty_j)
-    au_filled = hamaker_pressure(d, t, params.hamaker_au_filled_j)
     half_space = half_space_hamaker_pressure(d, params.hamaker_empty_j)
     radius_nm = diameter_nm / 2.0
 
@@ -129,11 +116,8 @@ def evaluate_geometry(
         "diameter_nm": diameter_nm,
         "indentation_modulus_gpa": modulus / GPA,
         "hamaker_empty_mpa": empty / 1e6,
-        "hamaker_au_filled_mpa": au_filled / 1e6,
         "hamaker_fraction_of_half_space": empty / half_space,
-        "adhesion_scale_gpa": adhesion_energy_scale(d, params.cohesion_j_m2) / GPA,
-        "flat_punch_two_compliant_gpa": two_compliant / GPA,
-        "flat_punch_supported_lower_gpa": supported_lower / GPA,
+        "flat_punch_free_standing_gpa": free_standing / GPA,
         "t_over_a": mos2_thickness_nm / radius_nm,
         "half_space_valid": mos2_thickness_nm / radius_nm >= 2.0,
     }
@@ -189,10 +173,7 @@ def main() -> None:
     )
     print(f"MoS2 indentation modulus: {result['indentation_modulus_gpa']:.3f} GPa")
     print(f"Empty-gap Hamaker pressure: {result['hamaker_empty_mpa']:.6f} MPa")
-    print(f"Au-filled Hamaker pressure: {result['hamaker_au_filled_mpa']:.6f} MPa")
-    print(f"Adhesion energy scale Gamma/d: {result['adhesion_scale_gpa']:.6f} GPa")
-    print(f"Flat punch, two compliant slabs: {result['flat_punch_two_compliant_gpa']:.6f} GPa")
-    print(f"Flat punch, supported lower slab: {result['flat_punch_supported_lower_gpa']:.6f} GPa")
+    print(f"Free-standing finite-disc elastic contact: {result['flat_punch_free_standing_gpa']:.6f} GPa")
     validity = "within" if result["half_space_valid"] else "outside"
     print(f"t/a={result['t_over_a']:.3f}: {validity} the t/a >= 2 half-space criterion")
 

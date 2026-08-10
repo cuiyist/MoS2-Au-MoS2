@@ -11,15 +11,18 @@ class PressureModelTests(unittest.TestCase):
     def test_reference_geometry_2p4_nm(self):
         result = pm.evaluate_geometry(50.0, 2.4, 50.0)
         self.assertAlmostEqual(result["hamaker_empty_mpa"], 0.430324, places=6)
-        self.assertAlmostEqual(result["hamaker_au_filled_mpa"], 0.356554, places=6)
-        self.assertAlmostEqual(result["adhesion_scale_gpa"], 0.200833, places=6)
-        self.assertAlmostEqual(result["flat_punch_two_compliant_gpa"], 1.645550, places=6)
+        self.assertAlmostEqual(result["flat_punch_free_standing_gpa"], 1.645550, places=6)
         self.assertTrue(result["half_space_valid"])
 
     def test_reference_geometry_5p3_nm(self):
         result = pm.evaluate_geometry(50.0, 5.3, 50.0)
         self.assertAlmostEqual(result["hamaker_empty_mpa"], 0.039900, places=6)
-        self.assertAlmostEqual(result["flat_punch_two_compliant_gpa"], 3.633923, places=6)
+        self.assertAlmostEqual(result["flat_punch_free_standing_gpa"], 3.633923, places=6)
+
+    def test_free_standing_flakes_share_displacement(self):
+        pressure = pm.free_standing_flat_punch_pressure(2.4 * pm.NM, 50 * pm.NM, pm.indentation_modulus())
+        expected = pm.indentation_modulus() * 2.4 * pm.NM / (math.pi * 25 * pm.NM)
+        self.assertAlmostEqual(pressure, expected)
 
     def test_half_space_limit(self):
         gap = 2.5 * pm.NM

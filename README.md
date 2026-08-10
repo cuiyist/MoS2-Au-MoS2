@@ -9,13 +9,12 @@ Research code and supporting analysis for Au confined between MoS2 flakes. The r
 
 [**Launch the interactive pressure explorer ->**](https://cuiyist.github.io/MoS2-Au-MoS2/)
 
-The explorer compares three models for the experimentally relevant geometry: two approximately 50 nm thick MoS2 flakes, a 2.4-5.3 nm gap or Au thickness, and an approximately 50 nm Au-disc diameter.
+The explorer compares two models for the experimentally relevant geometry: two approximately 50 nm thick MoS2 flakes, a 2.4-5.3 nm empty-gap separation or Au-disc thickness, and an approximately 50 nm Au-disc diameter.
 
 1. Finite-slab Hamaker pressure across an empty gap.
-2. Finite-slab Hamaker pressure with Au filling the gap.
-3. Finite-disc elastic-contact reaction stress.
+2. Finite-disc elastic-contact reaction stress for an Au disc freely encapsulated between two compliant MoS2 flakes.
 
-![Schematics of the three confinement-pressure models](MoS2-MoS2-confinement-pressure-analysis/figures/model-schematics.svg)
+![Schematics of the two confinement-pressure models](MoS2-MoS2-confinement-pressure-analysis/figures/model-schematics.svg)
 
 The Hamaker estimates are sub-MPa over the observed thickness range. The fully conformal elastic-contact model gives a GPa-scale normal reaction, which should be interpreted as an ideal-elastic upper scale rather than a uniquely determined sustained pressure. The models answer different physical questions and should not be added together.
 
@@ -71,8 +70,7 @@ Several scripts contain machine-specific paths or refer to source data that are 
 ## Scope and reproducibility
 
 - The continuum models provide pressure scales, not a coupled atomistic-continuum prediction of the annealing trajectory.
-- The Au-filled Hamaker constant is illustrative; a full multilayer Lifshitz calculation would require frequency-dependent dielectric functions.
-- The finite-disc result assumes linear elasticity and full conformal contact and is best treated as an upper stress scale.
+- The finite-disc result assumes two compliant, free-standing MoS2 flakes, linear elasticity, and full conformal contact and is best treated as an upper stress scale.
 - The DFT scripts are starting points for reproducing the original calculations. Convergence settings, input structures, paths, and computing resources should be revalidated for a new environment.
 
 When reusing results, cite the underlying literature listed in the [analysis README](MoS2-MoS2-confinement-pressure-analysis/README.md#references) in addition to the associated manuscript.
